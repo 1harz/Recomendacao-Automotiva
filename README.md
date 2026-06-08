@@ -9,11 +9,20 @@ O sistema foi desenvolvido como uma API utilizando o **FastAPI** e é totalmente
 4. Containerização com Docker e Docker Compose.
 5. Testes automatizados e documentação.
 
-## 📦 Como Funciona
+## Aluno:
+- Nome: Raul Falluh Fragoso de Mendonça
+- Matrícula: 22300926
+- Instituição: Centro Universitário de Brasília
+- Curso: Ciência da Computação
+- Período: 7º Semestre
+- Matéria: Desenvolvimento de sistemas de IA
+- Professor: Fábio Oliveira Guimarães 
+
+## Como Funciona
 
 O projeto extrai uma amostra de reviews de usuários que compraram produtos da categoria `Automotive`. A partir do histórico de notas (ratings de 1 a 5 estrelas) de diferentes itens, o modelo de Filtragem Colaborativa é capaz de identificar similaridades e sugerir novas peças e acessórios que possam interessar a um determinado usuário.
 
-## 🚀 Como Executar
+## Como Executar
 
 ### Pré-requisitos
 - Docker e Docker Compose instalados na máquina.
@@ -27,14 +36,14 @@ O projeto extrai uma amostra de reviews de usuários que compraram produtos da c
 3. Acesse a documentação interativa da API (Swagger UI) pelo navegador em:
    `http://localhost:8000/docs`
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 - **Linguagem:** Python 3
 - **Framework Web:** FastAPI, Uvicorn
 - **Data Science / ML:** Pandas, Numpy, Scikit-learn, Datasets (Hugging Face)
 - **Infraestrutura:** Docker, Docker Compose
 - **Testes:** Pytest, Httpx
 
-## 📚 Endpoints da API
+## Endpoints da API
 A API provê as seguintes rotas principais:
 - `POST /users/` - Adicionar novo usuário.
 - `POST /items/` - Adicionar um novo item automotivo.
@@ -42,4 +51,4 @@ A API provê as seguintes rotas principais:
 - `GET /recommendations/{user_id}` - Retornar a lista de itens automotivos recomendados.
 
 ---
-*Projeto desenvolvido para a disciplina / exercício de Sistemas de Recomendação.*
+*Projeto desenvolvido para a disciplina Desenvolvimento de sistemas de IA.*
