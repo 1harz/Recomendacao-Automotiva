@@ -5,7 +5,5 @@
 !data/
 !data/*
 !README.md
-!scripts/
-!scripts/reduce_dataset.py
 !.gitignore
 
