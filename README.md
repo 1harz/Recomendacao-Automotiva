@@ -22,6 +22,14 @@ O sistema foi desenvolvido como uma API utilizando o **FastAPI** e é totalmente
 
 O projeto extrai uma amostra de reviews de usuários que compraram produtos da categoria `Automotive`. A partir do histórico de notas (ratings de 1 a 5 estrelas) de diferentes itens, o modelo de Filtragem Colaborativa é capaz de identificar similaridades e sugerir novas peças e acessórios que possam interessar a um determinado usuário.
 
+## Extração e Tratamento de Dados (ETL)
+
+A base de dados original contendo o catálogo de produtos e avaliações foi baixada diretamente do laboratório do pesquisador Julian McAuley hospedado no Hugging Face:
+- **Reviews**: [Automotive.jsonl](https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023/blob/main/raw/review_categories/Automotive.jsonl)
+- **Metadados (Catálogo)**: [meta_Automotive.jsonl](https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023/blob/main/raw/meta_categories/meta_Automotive.jsonl)
+
+Como os arquivos originais englobam milhões de registros (pesando vários Gigabytes), foi desenvolvido um script de limpeza e redução disponível em `scripts/reduce_dataset.py`. Este script varre de forma limpa as primeiras 50.000 linhas de cada arquivo `.jsonl` bruto, extrai unicamente as colunas vitais para a Inteligência Artificial (ID do usuário, ID do produto, Nota, Título e Preço) e exporta em um formato leve `.csv` alocado na pasta `data/`. Essa abordagem de engenharia de dados permitiu agilidade, eficiência de memória ram e velocidade de inferência para a nossa API no Docker.
+
 ## Como Executar
 
 ### Pré-requisitos

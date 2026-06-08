@@ -1,0 +1,11 @@
+# Ignorar arquivos nao relevantes
+*
+
+# Arquivos e diretórios a serem commitados por agora
+!data/
+!data/*
+!README.md
+!scripts/
+!scripts/reduce_dataset.py
+!.gitignore
+
