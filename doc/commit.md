@@ -11,8 +11,8 @@ Para dar aspecto de um projeto de alta complexidade e longo prazo, a implementa√
 
 ## Fase 2: Estrutura Base da API (FastAPI)
 - [x] feat(api): criacao do esqueleto da aplicacao FastAPI em src/main.py (Resolves #5)
-- [ ] feat(models): definicao de schemas Pydantic para UserCreate e ItemCreate (Resolves #6)
-- [ ] feat(models): definicao de schemas Pydantic para RatingCreate e RecommendationResponse (Resolves #7)
+- [x] feat(models): definicao de schemas Pydantic para UserCreate e ItemCreate (Resolves #6)
+- [x] feat(models): definicao de schemas Pydantic para RatingCreate e RecommendationResponse (Resolves #7)
 - [ ] feat(api): implementacao da rota de boas-vindas (root) e meta-informacoes (Resolves #8)
 - [ ] feat(api): implementacao da rota de health check para monitoramento do estado do sistema (Resolves #9)
 - [ ] feat(api): criacao do endpoint de cadastro de novos usuarios (POST /users) (Resolves #10)
