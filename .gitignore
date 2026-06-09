@@ -1,11 +1,16 @@
-# Ignorar arquivos nao relevantes
-__pycache__/
-*.pyc
-.env
-venv/
-.pytest_cache/
+*
 
-# Nunca devem ser comitados de acordo com as restrições
-doc/
-docs/
-do_commits.ps1
+!data/
+!data/amazon_meta_automotive_sample.csv
+!data/amazon_reviews_automotive_sample.csv
+
+!Scripts/
+!Scripts/reduce_dataset.py
+
+!src/
+!src/main.py
+!src/models.py
+
+!README.md
+!.gitignore
+!requirements.txt
