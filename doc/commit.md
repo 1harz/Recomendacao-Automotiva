@@ -10,7 +10,7 @@ Para dar aspecto de um projeto de alta complexidade e longo prazo, a implementa√
 - [x] chore(git): configuracao de regras de exclusao no .gitignore (Resolves #4)
 
 ## Fase 2: Estrutura Base da API (FastAPI)
-- [ ] feat(api): criacao do esqueleto da aplicacao FastAPI em src/main.py (Resolves #5)
+- [x] feat(api): criacao do esqueleto da aplicacao FastAPI em src/main.py (Resolves #5)
 - [ ] feat(models): definicao de schemas Pydantic para UserCreate e ItemCreate (Resolves #6)
 - [ ] feat(models): definicao de schemas Pydantic para RatingCreate e RecommendationResponse (Resolves #7)
 - [ ] feat(api): implementacao da rota de boas-vindas (root) e meta-informacoes (Resolves #8)
