@@ -1,9 +1,6 @@
-# Ignorar arquivos nao relevantes
-*
-
-# Arquivos e diretórios a serem commitados por agora
-!data/
-!data/*
-!README.md
-!.gitignore
+__pycache__/
+*.pyc
+.env
+venv/
+.pytest_cache/
 
