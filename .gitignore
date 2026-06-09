@@ -1,6 +1,11 @@
+# Ignorar arquivos nao relevantes
 __pycache__/
 *.pyc
 .env
 venv/
 .pytest_cache/
 
+# Nunca devem ser comitados de acordo com as restrições
+doc/
+docs/
+do_commits.ps1
