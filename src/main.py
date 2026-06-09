@@ -2,3 +2,7 @@ from fastapi import FastAPI
 
 app = FastAPI(title='Automotive Recommendation API')
 
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to Automotive Recommendation API", "version": "1.0.0"}
