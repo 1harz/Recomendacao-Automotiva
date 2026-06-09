@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.models import UserCreate
+from src.models import UserCreate, ItemCreate
 
 app = FastAPI(title='Automotive Recommendation API')
 
@@ -15,3 +15,7 @@ def health_check():
 @app.post("/users")
 def create_user(user: UserCreate):
     return user
+
+@app.post("/items")
+def create_item(item: ItemCreate):
+    return item
