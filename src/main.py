@@ -19,3 +19,11 @@ def create_user(user: UserCreate):
 @app.post("/items")
 def create_item(item: ItemCreate):
     return item
+
+@app.get('/users')
+def get_users():
+    return []
+
+@app.get('/items')
+def get_items():
+    return []
