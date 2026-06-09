@@ -56,6 +56,8 @@ A API provê as seguintes rotas principais:
 - `POST /users/` - Adicionar novo usuário.
 - `POST /items/` - Adicionar um novo item automotivo.
 - `POST /ratings/` - Atualizar as preferências (notas) de um usuário sobre um item.
+- `GET /items/` - Listar itens disponiveis na memoria.
+- `GET /users/` - Listar usuarios cadastrados.
 - `GET /recommendations/{user_id}` - Retornar a lista de itens automotivos recomendados.
 
 ---
