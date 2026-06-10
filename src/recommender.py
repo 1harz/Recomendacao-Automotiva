@@ -9,3 +9,6 @@ class RecommenderSystem:
 
     def clean_data(self, df):
         return df.dropna()
+
+    def compute_cosine_similarity(self, matrix):
+        pass
