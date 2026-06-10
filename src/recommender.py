@@ -12,3 +12,6 @@ class RecommenderSystem:
 
     def compute_cosine_similarity(self, matrix):
         pass
+
+    def build_user_item_matrix(self, df):
+        pass
