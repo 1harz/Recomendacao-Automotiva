@@ -15,3 +15,6 @@ class RecommenderSystem:
 
     def build_user_item_matrix(self, df):
         pass
+
+    def update_matrix(self, new_rating):
+        pass
