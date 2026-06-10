@@ -6,3 +6,6 @@ class RecommenderSystem:
 
     async def load_data(self, csv_path: str):
         return pd.read_csv(csv_path)
+
+    def clean_data(self, df):
+        return df.dropna()
