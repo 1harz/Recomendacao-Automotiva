@@ -14,3 +14,6 @@
 !README.md
 !.gitignore
 !requirements.txt
+
+!tests/
+!tests/test_main.py
