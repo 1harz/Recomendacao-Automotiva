@@ -31,3 +31,7 @@ def get_items():
 @app.post('/ratings')
 def add_rating():
     return {'message': 'Rating added'}
+
+@app.get('/recommendations/{user_id}')
+def get_recommendations(user_id: int):
+    return []
