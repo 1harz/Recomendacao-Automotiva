@@ -21,3 +21,6 @@ class RecommenderSystem:
 
     def get_cold_start_recommendations(self):
         return ['popular_item_1', 'popular_item_2']
+
+    def recommend(self, user_id: int):
+        return self.get_cold_start_recommendations()
