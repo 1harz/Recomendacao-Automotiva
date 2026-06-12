@@ -27,3 +27,7 @@ def get_users():
 @app.get('/items')
 def get_items():
     return []
+
+@app.post('/ratings')
+def add_rating():
+    return {'message': 'Rating added'}
