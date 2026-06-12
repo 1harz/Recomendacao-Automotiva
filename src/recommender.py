@@ -18,3 +18,6 @@ class RecommenderSystem:
 
     def update_matrix(self, new_rating):
         pass
+
+    def get_cold_start_recommendations(self):
+        return ['popular_item_1', 'popular_item_2']
