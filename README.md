@@ -62,3 +62,6 @@ A API provê as seguintes rotas principais:
 
 ---
 *Projeto desenvolvido para a disciplina Desenvolvimento de sistemas de IA.*
+
+## Heuristica e IA
+O sistema utiliza Similaridade de Cosseno e fallback para Cold Start baseado em itens populares.
