@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from src.models import UserCreate, ItemCreate
 
-app = FastAPI(title='Automotive Recommendation API')
+app = FastAPI(title='Automotive Recommendation API', description='API com IA de Recomendacao')
 
 
 @app.get("/")
