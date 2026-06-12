@@ -8,3 +8,8 @@ class ItemCreate(BaseModel):
     id: int
     name: str
 
+
+class RatingCreate(BaseModel):
+    user_id: int
+    item_id: int
+    rating: float
