@@ -1,5 +1,7 @@
 # Sistema de Recomendação Automotivo (Amazon Reviews 2023)
 
+> **Guia Rápido de Testes:** Passo a passo disponível no arquivo [`inputs_swagger.md`](inputs_swagger.md)!
+
 Este projeto implementa um sistema de recomendação de produtos e peças automotivas, baseado no dataset público de avaliações da Amazon (versão 2023, mantido pelo laboratório do Professor Julian McAuley).
 
 O sistema foi desenvolvido como uma API utilizando o **FastAPI** e é totalmente containerizado com **Docker**, atendendo aos seguintes requisitos:

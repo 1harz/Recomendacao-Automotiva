@@ -66,3 +66,17 @@ Isso é uma demonstração perfeita do sistema de **Cold Start (Início Frio)** 
 3. Quando isso ocorre, o algoritmo entra em modo de segurança *(fallback)* e passa a recomendar os **itens globais mais populares e mais bem avaliados** de todo o catálogo.
 
 Essa heurística garante que, mesmo sem ter histórico cruzado suficiente, o sistema sempre faça boas recomendações para o cliente final.
+
+---
+
+### 5. Testando o sistema com Usuários Reais (Filtragem Colaborativa)
+
+Para ver a Inteligência Artificial cruzando dados reais e fazendo **recomendações personalizadas**, você deve testar o `GET /recommendations/{user_id}` com IDs de usuários que já existem no dataset da Amazon e que possuem um grande histórico de compras.
+
+**Top 5 usuários** mais ativos do banco de dados para teste. Basta copiar qualquer um desses IDs e colar no campo `user_id` do Swagger para ver a Similaridade de Cosseno acontecer:
+
+* `AGSXMEKFKM2HDFZ4UNE676O6D5LQ` *(363 avaliações na base de dados)*
+* `AFTZWAK3ZHAPCNSOT5GCKQDECBTQ` *(194 avaliações na base de dados)*
+* `AFKMX6JZ655VPVYHBTATZQS4IBOQ` *(187 avaliações na base de dados)*
+* `AGLKIWKYUJJOBBACYRTH47RHTIXQ` *(181 avaliações na base de dados)*
+* `AF6LKEC5AYJPLLYQ355L2BT3XHEQ` *(176 avaliações na base de dados)*
