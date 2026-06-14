@@ -1,24 +1,24 @@
-*
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
 
-!data/
-!data/amazon_meta_automotive_sample.csv
-!data/amazon_reviews_automotive_sample.csv
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
 
-!Scripts/
-!Scripts/reduce_dataset.py
+# IDE
+.vscode/
+.idea/
 
-!src/
-!src/main.py
-!src/models.py
+# Sistema operacional
+.DS_Store
+Thumbs.db
 
-!README.md
-!.gitignore
-!requirements.txt
-
-!tests/
-!tests/test_main.py
-
-!tests/test_api.py
-!tests/test_ml.py
-!Dockerfile
-!docker-compose.yml
+# Dados brutos (nao versionar arquivos jsonl originais da Amazon)
+data/*.jsonl
