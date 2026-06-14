@@ -21,3 +21,4 @@
 !tests/test_api.py
 !tests/test_ml.py
 !Dockerfile
+!docker-compose.yml
