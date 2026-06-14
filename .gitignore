@@ -17,3 +17,5 @@
 
 !tests/
 !tests/test_main.py
+
+!tests/test_api.py
