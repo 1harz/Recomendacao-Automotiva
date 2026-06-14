@@ -65,3 +65,6 @@ A API provê as seguintes rotas principais:
 
 ## Heuristica e IA
 O sistema utiliza Similaridade de Cosseno e fallback para Cold Start baseado em itens populares.
+
+## Uso do Docker
+Para rodar via docker, execute: `docker-compose up -d`
