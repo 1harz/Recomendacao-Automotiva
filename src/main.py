@@ -6,6 +6,7 @@ from fastapi import FastAPI, HTTPException, Query
 from src.models import (
     HealthResponse,
     ItemCreate,
+    MessageResponse,
     RatingCreate,
     RecommendationItem,
     UserCreate,
@@ -19,8 +20,8 @@ REVIEWS_PATH = os.path.join(DATA_DIR, "amazon_reviews_automotive_sample.csv")
 META_PATH = os.path.join(DATA_DIR, "amazon_meta_automotive_sample.csv")
 
 recommender = RecommenderSystem()
-users: dict[str, str] = {}
-items: dict[str, str] = {}
+users: dict[str, UserCreate] = {}
+items: dict[str, ItemCreate] = {}
 
 
 @asynccontextmanager
@@ -33,13 +34,31 @@ async def lifespan(app: FastAPI):
     yield
 
 
+DESCRIPTION = """
+
+Bem-vindo à documentação oficial do **Sistema de Recomendação Automotiva**! 
+
+Esta API utiliza técnicas de Inteligência Artificial baseadas em **Filtragem Colaborativa (Similaridade de Cosseno)** sobre o dataset Amazon Automotive para gerar recomendações personalizadas de peças e acessórios automotivos.
+
+## Principais Funcionalidades
+
+* **Gestão de Usuários**: Cadastre e liste usuários no sistema.
+* **Gestão de Itens**: Adicione novas peças automotivas ao catálogo.
+* **Avaliações**: Registre as avaliações dos usuários para os itens (alimentando a IA).
+* **Recomendações (IA)**: Obtenha recomendações personalizadas com base no histórico de avaliações do usuário ou os itens mais populares (Cold Start).
+
+## Como Testar
+
+Você pode testar a API diretamente aqui no Swagger! Siga o fluxo básico:
+1. **Cadastre um usuário** em `POST /users/`.
+2. **Cadastre um item** em `POST /items/`.
+3. **Avalie um item** em `POST /ratings/` (use o usuário e item cadastrados).
+4. **Obtenha recomendações** em `GET /recommendations/{user_id}`.
+"""
+
 app = FastAPI(
-    title="Automotive Recommendation API",
-    description=(
-        "API com Inteligencia Artificial de Recomendacao de pecas automotivas "
-        "baseada em Filtragem Colaborativa (Similaridade de Cosseno) sobre o "
-        "dataset Amazon Automotive 2023."
-    ),
+    title="Sistema de Recomendação Automotiva API",
+    description=DESCRIPTION,
     version="1.0.0",
     lifespan=lifespan,
 )
@@ -47,6 +66,7 @@ app = FastAPI(
 
 @app.get("/", tags=["Util"])
 def read_root():
+    """Retorna uma mensagem de boas-vindas."""
     return {
         "message": "Welcome to Automotive Recommendation API",
         "version": "1.0.0",
@@ -55,44 +75,50 @@ def read_root():
 
 @app.get("/health", response_model=HealthResponse, tags=["Util"])
 def health_check():
+    """Verifica o status do sistema de recomendação e retorna estatísticas."""
     return recommender.stats()
 
 
-@app.post("/users", tags=["Usuarios"])
+@app.post("/users", response_model=UserCreate, tags=["Usuarios"])
 def create_user(user: UserCreate):
+    """Cadastra um novo usuário no sistema."""
     if user.user_id in users:
         raise HTTPException(status_code=400, detail="Usuario ja cadastrado")
-    users[user.user_id] = user.name
-    return {"user_id": user.user_id, "name": user.name}
+    users[user.user_id] = user
+    return user
 
 
-@app.post("/items", tags=["Itens"])
+@app.post("/items", response_model=ItemCreate, tags=["Itens"])
 def create_item(item: ItemCreate):
+    """Cadastra uma nova peça automotiva no sistema."""
     if item.parent_asin in items:
         raise HTTPException(status_code=400, detail="Item ja cadastrado")
-    items[item.parent_asin] = item.title
-    return {"parent_asin": item.parent_asin, "title": item.title}
+    items[item.parent_asin] = item
+    return item
 
 
-@app.get("/users", tags=["Usuarios"])
+@app.get("/users", response_model=list[UserCreate], tags=["Usuarios"])
 def get_users():
-    return [{"user_id": uid, "name": name} for uid, name in users.items()]
+    """Retorna a lista de usuários cadastrados manualmente nesta sessão."""
+    return list(users.values())
 
 
-@app.get("/items", tags=["Itens"])
+@app.get("/items", response_model=list[ItemCreate], tags=["Itens"])
 def get_items():
-    return [{"parent_asin": asin, "title": title} for asin, title in items.items()]
+    """Retorna a lista de itens cadastrados manualmente nesta sessão."""
+    return list(items.values())
 
 
-@app.post("/ratings", tags=["Avaliacoes"])
+@app.post("/ratings", response_model=MessageResponse, tags=["Avaliacoes"])
 def add_rating(rating: RatingCreate):
+    """Registra a avaliação de um usuário para um item e atualiza a Inteligência Artificial."""
     recommender.add_rating(rating.user_id, rating.parent_asin, rating.rating)
-    return {
-        "message": (
+    return MessageResponse(
+        message=(
             f"Nota {rating.rating} do usuario {rating.user_id} "
             f"para o item {rating.parent_asin} registrada."
         )
-    }
+    )
 
 
 @app.get(

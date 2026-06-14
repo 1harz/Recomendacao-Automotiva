@@ -9,6 +9,11 @@ class UserCreate(BaseModel):
 class ItemCreate(BaseModel):
     parent_asin: str = Field(..., description="Identificador (ASIN) do produto automotivo")
     title: str = Field(..., description="Titulo do produto")
+    price: float | None = Field(default=None, description="Preço do produto")
+    average_rating: float | None = Field(default=None, description="Avaliação média do produto")
+
+class MessageResponse(BaseModel):
+    message: str = Field(..., description="Mensagem de retorno")
 
 
 class RatingCreate(BaseModel):
